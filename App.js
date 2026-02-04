@@ -14,6 +14,9 @@
                    // As we can see creating nested element make thing complex
                    //   when we create like this that's why we -----JSX------study in next lecture
 
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const parent = React.createElement("div" , 
     {id: parent} , 
     React.createElement("div" , {id:child}, [
@@ -34,3 +37,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //render element into root
 root.render(heading);
+
+
+                  //  <<<<<----------------- LECTURE 2 --------------------->>>>
+
