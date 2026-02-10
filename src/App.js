@@ -16,6 +16,8 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header";  // here we also import like import Header from "./components/Header.js"
+import Body from "./components/Body";
 
 // const parent = React.createElement("div" , 
 //     {id: parent} , 
@@ -102,22 +104,7 @@ import ReactDOM from "react-dom/client";
                // <--------------------   LECTURE 3   ------------------------------->
                
 
-    /**
-     * Header
-     *   - Logo
-     *   - Nav Items
-     * Body
-     *   - Search
-     *   - RestaurantContainer
-     *      - RestaurantCard
-     *         - Img
-     *         - Name of restaurant, Star Rating , cuisine, delivery time
-     * Footer
-     *   - Copyright
-     *   - Links
-     *   - Address
-     *   - Contact
-     */
+    
 
 const Header = () => {
     return (
@@ -136,7 +123,7 @@ const Header = () => {
 
        </div>
           
-    )
+    );
 };
 
 // here props is an object
