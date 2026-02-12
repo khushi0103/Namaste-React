@@ -58,3 +58,8 @@ import { Component} from "path";
 
   #  Why react is fast?
  - React is doing efficient DOM manipulation bez it has virtual DOM(its kind a javascript object representaio  of those html tags )
+
+  # There are two types of routing
+ - Client Side Routing - Ek hi HTML file, andar components change hote rehte hain
+ - Server Side Routing - Har page alag HTML file
+ - Client side routing is a mechanism in single page applications where route changes are handled in the browser without making a request to the server,     whereas server side routing involves requesting a new HTML page from the server for every route change.

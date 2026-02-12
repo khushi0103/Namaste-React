@@ -81,3 +81,37 @@
     padding: 10px;
     
 }
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25px 0;
+  border-bottom: 1px solid #eee;
+  gap : 40px;
+  max-width: 700px;     /* width limit */
+  margin: 0 auto;
+}
+
+.menu-text {
+  width: 65%;
+}
+
+.menu-text h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.menu-text p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* .res-logo {
+  width: 140px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+} */
+
