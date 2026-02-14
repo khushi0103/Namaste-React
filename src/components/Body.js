@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -19,17 +20,18 @@ const Body = () => {
        fetchData();
     } , []);  // it take two argument 1. callback function , 2. dependency array . It is called  after the all components renders. [] isko blank chodne pe ye hota h 
 
+
     const fetchData = async () => {
         const api1 = "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.40980&lng=77.31000&collection=80382&tags=layout_CCS_CholeBhature&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
         const api2 = "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.40980&lng=77.31000&collection=83637&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-        // const api3 = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.40980&lng=77.31000&restaurantId=34419&catalog_qa=undefined&query=Chole%20Bhature&submitAction=ENTER"
-        const [res1, res2, res3] = await Promise.all([fetch(api1), fetch(api2)]);
+      
+        const [res1, res2,] = await Promise.all([fetch(api1), fetch(api2)]);
         const json1 = await res1.json();
         const json2 = await res2.json();
-        // const json3 = await res3.json();
+        
         console.log(json1);
         console.log(json2);
-        // console.log(json3)
+        
 
         const restaurants1 = json1?.data?.cards
          ?.filter(c => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant")
@@ -47,6 +49,15 @@ const Body = () => {
     };
 
 
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) 
+        return (
+        <h1> 
+            Looks like you're offline!! Please check your internet connection
+        </h1>
+        )
+    
     // // Conditional Rendering
     // if(restaurants.length === 0){
     //     return <Shimmer />;
@@ -95,7 +106,7 @@ const Body = () => {
              {/* here we also use indexf or position (0,1,2...) at (restaurant , index ) and do not use index as a key , we can use if there is not a unique key but prefer to not use */}
                {filteredRestaurant.map((restaurant) => (
                 // <RestaurantCard key = {restaurant.info.id} resData = {restaurant}/>
-                <Link key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`} >
+                <Link key={restaurant.info.id} to={`/restaurants/${restaurant.info.id}`} style={{ textDecoration: "none", color: "inherit" }} >
                          <RestaurantCard resData={restaurant} />
                 </Link>
                ))}

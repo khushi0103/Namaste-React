@@ -1,6 +1,7 @@
- import { useEffect } from "react";
- import MOCK_RESTAURANTS from "../../utils/mockMenu";
+
 import { useParams } from "react-router-dom";
+import { SWIGGY_IMAGE_URL} from "../../utils/constants";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
 
  
  const RestaurantMenu = () => {
@@ -8,9 +9,7 @@ import { useParams } from "react-router-dom";
     //  useParams is a object that why we can destructure its data
      const { resId } = useParams();
 
-     const restaurant = MOCK_RESTAURANTS.find(
-     (res) => res.id === resId
-  );
+     const restaurant = useRestaurantMenu(resId)
      const info = restaurant?.info;
      const menu = restaurant?.menu;
 
@@ -53,10 +52,9 @@ import { useParams } from "react-router-dom";
             <img
               className="res-logo"
               alt="res-logo"
-              src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/" +
-                item.imageId
-              }
+              src=
+                {SWIGGY_IMAGE_URL + item.imageId }
+              
             />
 
           </div>

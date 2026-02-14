@@ -14,7 +14,7 @@
                    // As we can see creating nested element make thing complex
                    //   when we create like this that's why we -----JSX------study in next lecture
 
-import React from "react";
+import React , {lazy , Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";  // here we also import like import Header from "./components/Header.js"
 import Body from "./components/Body";
@@ -23,6 +23,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu";
+
 
 // const parent = React.createElement("div" , 
 //     {id: parent} , 
@@ -266,6 +267,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 //     );
 // };
 
+// here import is a function that take the path of grocery where it come from ---->
+const Grocery = lazy(() => import("./components/Grocery"));
 const AppLayout = () => {
     return (
         <div className = "app">
@@ -295,6 +298,13 @@ const appRouter = createBrowserRouter([
         {
             path: "/contact",
             element: <Contact />,
+       }, 
+
+       {
+            path: "/grocery",
+            element: <Suspense fallback={<h1>Loading......</h1>}>
+                <Grocery />
+                </Suspense>,
        }, 
        {
         // here jo : colon lgaya h :resId iska mtlb ye dynamic it can be change

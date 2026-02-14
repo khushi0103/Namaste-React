@@ -1,3 +1,5 @@
+import { SWIGGY_IMAGE_URL } from "../../utils/constants";
+
 const RestaurantCard = (props) => {
     // destructuring of the object--->
     const { resData} = props;
@@ -11,7 +13,7 @@ const RestaurantCard = (props) => {
              className="res-logo"
              alt="res-logo"
              src={
-                 "https://media-assets.swiggy.com/swiggy/image/upload/"+  cloudinaryImageId
+                 SWIGGY_IMAGE_URL +  cloudinaryImageId
                }
                />
             <h3>{name}</h3> 

@@ -63,3 +63,10 @@ import { Component} from "path";
  - Client Side Routing - Ek hi HTML file, andar components change hote rehte hain
  - Server Side Routing - Har page alag HTML file
  - Client side routing is a mechanism in single page applications where route changes are handled in the browser without making a request to the server,     whereas server side routing involves requesting a new HTML page from the server for every route change.
+
+ # logical separation of files and make bundle of that instead of making one bundle file in dist with .js extension
+  //   at now dist folder mai parcel bundling krta h aur sara code js mai bundle krke put kr deta h but large code ke liye tere are many components aur ek file mai rkhna loading time increase krega to hm diff bundle file bna skte h usi cheez ko below mai likhe names kehte h ---->
+ - Chunking
+ - Code Splitting
+ - Dynamic Bundling
+ - lazy loading  -- mtlb ki hm sari cheeze ek bar mai load nhi krte like on demand  loading whenever there is a demand , and jb us page pe jaye tb hi uska data   load ho 

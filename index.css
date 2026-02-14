@@ -108,6 +108,10 @@
   color: #555;
 }
 
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
+}
 /* .res-logo {
   width: 140px;
   height: 120px;
